@@ -1,0 +1,11 @@
+name = Bibsdb Staff
+description = Page that displays ding_staff view - All staff
+core = 7.x
+package = Bibsdb
+dependencies[] = ctools
+dependencies[] = ding_staff
+dependencies[] = page_manager
+features[ctools][] = page_manager:pages_default:1
+features[features_api][] = api:1
+features[page_manager_pages][] = bibsdb_staff
+project path = sites/default/modules

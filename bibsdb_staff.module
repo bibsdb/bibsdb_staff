@@ -1,0 +1,7 @@
+<?php
+/**
+ * @file
+ * Code for the Bibsdb Staff feature.
+ */
+
+include_once 'bibsdb_staff.features.inc';
