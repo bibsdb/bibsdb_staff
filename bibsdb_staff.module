@@ -15,7 +15,6 @@ function bibsdb_staff_views_default_views_alter(&$views) {
   if (!empty($views['ding_staff'])) {
 	
 			//dpm($views['ding_staff']->display['ding_staff_list_all']);
-			kpr($views['ding_staff']->display['default']);
 			$views['ding_staff']->display['default']->display_options['pager']['type'] = 'none';
 			$views['ding_staff']->display['default']->display_options['pager']['options']['offset'] = '0';
 			//$views['ding_staff']->display['ding_staff_list_all']->display_options['title'] = 'hallo';
