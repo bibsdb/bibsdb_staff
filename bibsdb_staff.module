@@ -9,15 +9,19 @@ include_once 'bibsdb_staff.features.inc';
 /**
  * Implements hook_views_default_views_alter().
  *
- * We don't want to display a teaser. Just show all items.
+ * We don't want to display a pager. Just show all items.
  */
 function bibsdb_staff_views_default_views_alter(&$views) {
   if (!empty($views['ding_staff'])) {
 	
 			//dpm($views['ding_staff']->display['ding_staff_list_all']);
-			//dpm($views['ding_staff']->display['ding_staff_list_all']);
-			$views['ding_staff']->display['ding_staff_list_all']->display_options['title'] = 'hallo';
-      $views['ding_staff']->display['ding_staff_list_all']->display_options['pager']['type'] = 'none';
-      $views['ding_staff']->display['ding_staff_list_all']->display_options['pager']['options']['offset'] = '0';
+			kpr($views['ding_staff']->display['default']);
+			$views['ding_staff']->display['default']->display_options['pager']['type'] = 'none';
+			$views['ding_staff']->display['default']->display_options['pager']['options']['offset'] = '0';
+			//$views['ding_staff']->display['ding_staff_list_all']->display_options['title'] = 'hallo';
+      //$views['ding_staff']->display['ding_staff_list_all']->display_options['pager']['type'] = 'none';
+      //$views['ding_staff']->display['ding_staff_list_all']->display_options['pager']['options']['offset'] = '0';
   }
+  
+
 }
