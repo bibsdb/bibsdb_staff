@@ -24,3 +24,38 @@ function bibsdb_staff_views_default_views_alter(&$views) {
   
 
 }
+
+
+/**
+ * Implements hook_image_styles_alter().
+ * Change ding_staff_thumbnail dimensions.
+ * 
+ * @param $styles
+ */
+function bibsdb_staff_image_styles_alter(&$styles) {
+
+  if (function_exists('image_image_effect_info')) {
+	  // Init the effect data.
+   $effects = image_image_effect_info();
+   $scale_effect = $effects['image_scale_and_crop'];
+   $scale_effect['data'] = array();
+   $scale_effect['weight'] = 0;
+
+	  // Store styles data.
+   $styles_data = array(
+     'ding_staff_thumbnail' => array(
+       'width' => 180,
+       'height' => 240,
+       ),
+     );
+
+   foreach ($styles_data as $style_name => $data) {
+	    // Check that we only affect a default style.
+     if ($styles[$style_name]['storage'] == IMAGE_STORAGE_DEFAULT) {
+       $scale_effect['data'] = $data;
+       $styles[$style_name]['effects'] = array();
+       $styles[$style_name]['effects'][] = $scale_effect;
+     }
+   }
+ }
+}
